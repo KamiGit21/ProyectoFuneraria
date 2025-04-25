@@ -195,7 +195,7 @@ export default function Home() {
           py: 5,
           textAlign: 'center',
         }}>
-        <Container maxWidth="lg">
+        <Container sx={{ width: '100%' }}>
           <Typography
             variant="h2"
             sx={{
@@ -205,25 +205,37 @@ export default function Home() {
           }}>
             Paquetes
           </Typography>
-          <Box
-            sx={{
+            <Box
+              sx={{
               display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 4,
-              flexWrap: 'wrap',
-              mt: 4,
-            }}>
-            {paquetes.map((paquete, index) => (
-              <PackageCard
+              overflowX: 'auto',
+              gap: 2,
+              pb: 2,
+              '&::-webkit-scrollbar': {
+                display: 'none',
+              },
+              }}
+            >
+              {paquetes.map((paquete, index) => (
+              <Box
                 key={index}
+                sx={{
+                flex: '0 0 auto',
+                minWidth: '300px',
+                }}
+              >
+                <PackageCard
                 nombre={paquete.title}
                 descripcion={paquete.description}
                 precio={paquete.price}
-                servicios={paquete.features.map((feature) => ({ nombre: feature, descripcion: '' }))}
-              />
-            ))}
-          </Box>
+                servicios={paquete.features.map((feature) => ({
+                  nombre: feature,
+                  descripcion: '',
+                }))}
+                />
+              </Box>
+              ))}
+            </Box>
         </Container>
       </Box>
 
