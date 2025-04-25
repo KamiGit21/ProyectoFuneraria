@@ -11,18 +11,18 @@ import {
 import bannerImage from '../assets/inicio.png';
 import logo from '../assets/Logo_B.png';
 import tarjeta from '../components/Testimoneo';
-import PackageCard from '../PackageCard';
+import PackageCard from '../components/PackageCard';
 
 export default function Home() {
-  const testimonios = [
+  const testimonios = [ 
     {
       name: 'María López',
-      text: 'El servicio fue excepcional, nos ayudaron en todo momento y nos brindaron el apoyo que necesitábamos en un momento tan difícil.',
+      text: 'El servicio fue excepcional',
       date: '15 de marzo de 2023',
     },
     {
       name: 'Juan Pérez',
-      text: 'LumenGest nos ofreció un trato humano y profesional. Estamos muy agradecidos por su atención y dedicación.',
+      text: 'LumenGest nos ofreció un trato humano y profesional.',
       date: '22 de abril de 2023',
     },
   ];
@@ -30,7 +30,7 @@ export default function Home() {
   const paquetes = [
     {
       title: 'Paquete Básico',
-      description: 'Incluye servicios esenciales para una despedida digna.',
+      description: 'Incluye servicios esenciales.',
       price: '$1,200',
       features: ['Ataúd estándar', 'Traslado local', 'Asesoría básica'],
     },
@@ -214,8 +214,14 @@ export default function Home() {
               flexWrap: 'wrap',
               mt: 4,
             }}>
-             {paquetes.map((paquete, index) => (
-              <PackageCard key={index} {...paquete} />
+            {paquetes.map((paquete, index) => (
+              <PackageCard
+                key={index}
+                nombre={paquete.title}
+                descripcion={paquete.description}
+                precio={paquete.price}
+                servicios={paquete.features.map((feature) => ({ nombre: feature, descripcion: '' }))}
+              />
             ))}
           </Box>
         </Container>
