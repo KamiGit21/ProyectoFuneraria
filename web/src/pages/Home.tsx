@@ -261,6 +261,7 @@ export default function Home() {
 
       {/* Secciones adicionales */}
       <Box
+        id="quienes-somos"
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
