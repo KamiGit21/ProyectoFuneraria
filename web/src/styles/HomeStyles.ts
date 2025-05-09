@@ -18,6 +18,14 @@ export const Section = styled('section')(({ theme }) => ({
   },
 }));
 
+export const PageTitle = styled('h2')({
+  fontFamily: `'Playfair Display', serif`,
+  fontWeight: 700,
+  color: COLORS.gold,
+  fontSize: '5rem',
+  marginBottom: '0.5rem',
+});
+
 export const Title = styled('h2')({
   fontFamily: `'Playfair Display', serif`,
   fontWeight: 700,
