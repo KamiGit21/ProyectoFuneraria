@@ -13,6 +13,7 @@ import Usuarios from './pages/Usuarios';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import PrivateRoute from './components/PrivateRoute';
+import Cotizacion from './pages/Cotizacion';
 
 
 function MainRoutes() {
@@ -43,6 +44,7 @@ function MainRoutes() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/autoregistro" element={<Autoregistro />} />
+          <Route path="/Cotizacion" element={<Cotizacion />} />
 
           <Route
             path="/RegistrarCliente"

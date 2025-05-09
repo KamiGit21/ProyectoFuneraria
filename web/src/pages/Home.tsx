@@ -34,42 +34,36 @@ export default function Home() {
       description: 'Incluye servicios esenciales.',
       price: '$1,200',
       features: ['Ataúd estándar', 'Traslado local', 'Asesoría básica'],
-      image: 'https://via.placeholder.com/300x200?text=Paquete+Basico',
     },
     {
       title: 'Paquete Premium',
       description: 'Un servicio completo con detalles personalizados.',
       price: '$3,500',
       features: ['Ataúd de lujo', 'Ceremonia personalizada', 'Asesoría completa'],
-      image: 'https://via.placeholder.com/300x200?text=Paquete+Premium',
     },
     {
       title: 'Paquete Familiar',
       description: 'Pensado para brindar apoyo integral a toda la familia.',
       price: '$2,800',
       features: ['Ataúd premium', 'Traslado regional', 'Apoyo psicológico'],
-      image: 'https://via.placeholder.com/300x200?text=Paquete+Familiar',
     },
     {
       title: 'Paquete Ejecutivo',
       description: 'Servicios exclusivos para clientes exigentes.',
       price: '$5,000',
       features: ['Ataúd ejecutivo', 'Traslado internacional', 'Ceremonia VIP'],
-      image: 'https://via.placeholder.com/300x200?text=Paquete+Ejecutivo',
     },
     {
       title: 'Paquete Económico',
       description: 'Una opción accesible sin comprometer la calidad.',
       price: '$900',
       features: ['Ataúd básico', 'Traslado local', 'Asesoría económica'],
-      image: 'https://via.placeholder.com/300x200?text=Paquete+Economico',
     },
     {
       title: 'Paquete Memorial',
       description: 'Incluye servicios para honrar la memoria de manera especial.',
       price: '$4,200',
       features: ['Ataúd personalizado', 'Ceremonia conmemorativa', 'Libro de recuerdos'],
-      image: 'https://via.placeholder.com/300x200?text=Paquete+Memorial',
     },
   ];
 
@@ -261,7 +255,6 @@ export default function Home() {
 
       {/* Secciones adicionales */}
       <Box
-        id="quienes-somos"
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
