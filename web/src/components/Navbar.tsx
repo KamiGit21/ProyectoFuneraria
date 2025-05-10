@@ -70,7 +70,7 @@ export default function Navbar() {
     | { label: string; path: string; action?: never }
     | { label: string; action: () => void; path?: never }
   > = [
-    { label: 'Servicios', path: '/servicios' },
+    { label: 'Servicios', path: '/Cotizacion' },
     { label: 'Obituarios', path: '/obituarios' },
     { label: 'Contacto', path: '/contacto' },
     { label: 'Quiénes somos', action: scrollToAbout },
