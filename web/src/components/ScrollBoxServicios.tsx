@@ -1,33 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Servicio from './Servicio';
 import '../styles/Cotizacion.css';
 
-export default function ScrollBoxServicios() {
-  const serviciosIniciales = Array.from({ length: 20 }, (_, i) => ({
-    nombre: `Servicio ${i + 1}`,
-    descripcion: `Descripción del servicio número ${i + 1}`,
-    costo: `${(i + 1) * 100} Bs.`,
-    checked: false,
-  }));
-
-  const [servicios, setServicios] = useState(serviciosIniciales);
-
-  const handleCheck = (index: number) => {
-    const nuevosServicios = [...servicios];
-    nuevosServicios[index].checked = !nuevosServicios[index].checked;
-    setServicios(nuevosServicios);
-  };
-
+export default function ScrollBoxServicios({ servicios, onCheck }) {
   return (
     <div className="scroll-box">
-      {servicios.map((servicio, index) => (
+      {servicios.map((servicio) => (
         <Servicio
-          key={index}
-          nombre={servicio.nombre}
-          descripcion={servicio.descripcion}
-          costo={servicio.costo}
-          checked={servicio.checked}
-          onCheck={() => handleCheck(index)}
+          key={servicio.id}
+          servicio={servicio}
+          onCheck={() => onCheck(servicio.id)}
         />
       ))}
     </div>

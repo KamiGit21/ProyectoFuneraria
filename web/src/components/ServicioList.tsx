@@ -2,11 +2,15 @@ import React from 'react';
 import '../styles/Cotizacion.css';
 
 type ServicioListProps = {
-  nombre: string;
+  servicio: {
+    id: number;
+    nombre: string;
+    costo: string;
+  };
   onRemove: () => void;
 };
 
-const ServicioList: React.FC<ServicioListProps> = ({ nombre, onRemove }) => {
+const ServicioList: React.FC<ServicioListProps> = ({ servicio, onRemove }) => {
   return (
     <div style={{
       display: 'flex',
@@ -17,7 +21,7 @@ const ServicioList: React.FC<ServicioListProps> = ({ nombre, onRemove }) => {
       marginBottom: '8px',
       backgroundColor: '#F2EFEA',
     }}>
-      <span style={{ fontSize: '16px' }}>{nombre}</span>
+      <span style={{ fontSize: '16px' }}>{servicio.nombre} - {servicio.costo}</span>
       <button
         onClick={onRemove}
         style={{
@@ -26,6 +30,7 @@ const ServicioList: React.FC<ServicioListProps> = ({ nombre, onRemove }) => {
           border: 'none',
           cursor: 'pointer',
           padding: '4px 8px',
+          borderRadius: '4px'
         }}
       >
         X
