@@ -3,6 +3,7 @@ import './PackageCard.css';
 
 interface Servicio {
   nombre: string;
+  id?: string; // Add ID to match with available services
 }
 
 interface PackageCardProps {
@@ -11,7 +12,7 @@ interface PackageCardProps {
   servicios: Servicio[];
   descripcion: string;
   precio: string;
-  onVerPaquete?: () => void;
+  onVerPaquete?: (servicios: Servicio[]) => void; // Modified to pass services list
 }
 
 const PackageCard: React.FC<PackageCardProps> = ({
@@ -31,14 +32,19 @@ const PackageCard: React.FC<PackageCardProps> = ({
       <div className="services-and-description">
         <div className="services-list">
           {servicios.map((servicio, index) => (
-          <p key={index} className="service-item">- {servicio.nombre}</p>
+            <p key={index} className="service-item">- {servicio.nombre}</p>
           ))}
         </div>
         <p className="package-description">{descripcion}</p>
       </div>
       <div className="package-footer">
         <span className="package-price">Precio: {precio}</span>
-        <button className="view-package-btn" onClick={onVerPaquete}>Ver paquete</button>
+        <button 
+          className="view-package-btn" 
+          onClick={() => onVerPaquete && onVerPaquete(servicios)}
+        >
+          Ver paquete
+        </button>
       </div>
     </div>
   );

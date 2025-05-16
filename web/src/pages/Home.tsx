@@ -34,39 +34,44 @@ export default function Home() {
       description: 'Incluye servicios esenciales.',
       price: '$1,200',
       features: ['Ataúd estándar', 'Traslado local', 'Asesoría básica'],
+      imagen: 'https://efuneraria.com/wp-content/uploads/2022/02/que-es-una-funeraria.jpg'
     },
     {
       title: 'Paquete Premium',
       description: 'Un servicio completo con detalles personalizados.',
       price: '$3,500',
       features: ['Ataúd de lujo', 'Ceremonia personalizada', 'Asesoría completa'],
+      imagen: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/JapaneseFuneralArrangementTokyo.jpg'
     },
     {
       title: 'Paquete Familiar',
       description: 'Pensado para brindar apoyo integral a toda la familia.',
       price: '$2,800',
       features: ['Ataúd premium', 'Traslado regional', 'Apoyo psicológico'],
+      imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQloFGP-lru6HENP-FFVZnoPYvE10QmsVTX3g&s'
     },
     {
       title: 'Paquete Ejecutivo',
       description: 'Servicios exclusivos para clientes exigentes.',
       price: '$5,000',
       features: ['Ataúd ejecutivo', 'Traslado internacional', 'Ceremonia VIP'],
+      imagen: 'https://funeza.com/wp-content/uploads/2024/04/thumbnail-3.jpg'
     },
     {
       title: 'Paquete Económico',
       description: 'Una opción accesible sin comprometer la calidad.',
       price: '$900',
       features: ['Ataúd básico', 'Traslado local', 'Asesoría económica'],
+      imagen: 'https://static.abc.es/media/sociedad/2018/04/06/ataudes-kqFH--1240x698@abc.jpg'
     },
     {
       title: 'Paquete Memorial',
       description: 'Incluye servicios para honrar la memoria de manera especial.',
       price: '$4,200',
       features: ['Ataúd personalizado', 'Ceremonia conmemorativa', 'Libro de recuerdos'],
+      imagen: 'https://efuneraria.com/wp-content/uploads/2022/02/que-es-una-funeraria.jpg'
     },
   ];
-
   return (
     <>
       <Section
@@ -242,6 +247,7 @@ export default function Home() {
             nombre={paquete.title}
             descripcion={paquete.description}
             precio={paquete.price}
+            imagen={paquete.imagen}
             servicios={paquete.features.map((feature) => ({
               nombre: feature,
               descripcion: '',
