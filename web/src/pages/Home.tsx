@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Button, Container, Typography } from '@mui/material';
 import {
   Section,
@@ -15,6 +16,9 @@ import PackageCard from '../components/PackageCard';
 import Carrusel from '../components/carrusel';
 
 export default function Home() {
+
+  const navigate = useNavigate();
+
   const testimonios = [ 
     {
       name: 'María López',
@@ -161,19 +165,20 @@ export default function Home() {
             <Button
               variant="contained"
               sx={{
-              backgroundColor: '#6C4F4B',
-              color: '#F2EFEA',
-              borderRadius: 50,
-              px: 16,
-              py: 6, 
-              fontSize: '1rem', 
-              whiteSpace: 'nowrap',
-              '&:hover': { backgroundColor: '#A48E5F' },
+                backgroundColor: '#6C4F4B',
+                color: '#F2EFEA',
+                borderRadius: 50,
+                px: 16,
+                py: 6,
+                fontSize: '1rem',
+                whiteSpace: 'nowrap',
+                '&:hover': { backgroundColor: '#A48E5F' },
               }}
+              onClick={() => navigate('/Cotizacion')}
             >
               Cotizar ahora
             </Button>
-            </Box>
+          </Box>
 
           {/* Palabras como botones */}
           <Box
