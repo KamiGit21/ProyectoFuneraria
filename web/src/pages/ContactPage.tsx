@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import FAQComponent from '../components/FAQComponent';
 import { 
   Box, 
   Container, 
@@ -164,6 +165,20 @@ const ContactPage = () => {
     });
   };
 
+  const sampleFAQs = [
+    {
+      id: 1n,
+      pregunta: "¿Cómo puedo crear una cuenta en el sistema?",
+      respuesta: "Para crear una cuenta, dirígete a la página de registro..."
+    },
+    {
+      id: 2n,
+      pregunta: "¿Qué métodos de pago aceptan?",
+      respuesta: "Aceptamos tarjetas de crédito, PayPal, transferencias..."
+    },
+    // Más preguntas...
+  ];
+
   // Horarios de atención
   const horarios = [
     { dia: 'Lunes a Viernes', horas: '08:00 - 20:00' },
@@ -190,6 +205,9 @@ const ContactPage = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
+
+      
+     <FAQComponent faqs={sampleFAQs} />
       {/* Cabecera */}
       <Box 
         sx={{ 
