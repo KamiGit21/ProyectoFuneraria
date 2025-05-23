@@ -56,7 +56,7 @@ function MainRoutes() {
       <Box component="main" sx={{ flexGrow: 1, pt: !isLogin ? '64px' : 0, px: 2 }}>
         <Routes>
           {/* — Públicas — */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Usuarios />} />
           <Route path="/login" element={<Login />} />
           <Route path="/autoregistro" element={<Autoregistro />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

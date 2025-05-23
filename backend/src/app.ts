@@ -12,6 +12,7 @@ import serviceRoutes  from './routes/service.routes';
 import orderRoutes    from './routes/order.routes';
 import importRoutes   from './routes/import.routes';
 import categoriaRoutes from './routes/categoria.routes';
+import usuarioRoutes  from './routes/usuario.routes';
 
 const app = express();
 console.log('🔍 Endpoints ANTES de montar rutas:');
@@ -45,6 +46,7 @@ app.use('/api/servicios',      serviceRoutes);
 app.use('/api/categorias',     categoriaRoutes);
 app.use('/api/ordenes',        orderRoutes);
 app.use('/api/importaciones',  importRoutes);
+app.use('/api/usuarios',       usuarioRoutes);
 
 // ─── 5) Después: imprime DE NUEVO tus rutas ───
 console.log('✅ Endpoints DESPUÉS de montar rutas:');

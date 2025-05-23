@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from "react";
-import axios from "../../services/axios";
+import axios from "../../api/axiosInstance"; 
 import { Button } from "../../components/Button";
-
-type Rol = {
-  id: string;
-  nombre: string;
-};
 
 type Usuario = {
   id: number;
-  nombre: string;
-  correo: string;
+  nombre_usuario: string;
+  email: string;
   estado: "ACTIVO" | "INACTIVO";
-  rol: Rol;
+  rol: "CLIENTE" | "OPERADOR" | "ADMIN";
 };
 
 const Usuarios = () => {
@@ -73,9 +68,9 @@ const Usuarios = () => {
         <tbody>
           {usuarios.map((usuario) => (
             <tr key={usuario.id}>
-              <td style={tdStyle}>{usuario.nombre}</td>
-              <td style={tdStyle}>{usuario.correo}</td>
-              <td style={tdStyle}>{usuario.rol?.nombre || "N/A"}</td>
+              <td style={tdStyle}>{usuario.nombre_usuario}</td>
+              <td style={tdStyle}>{usuario.email}</td>
+              <td style={tdStyle}>{usuario.rol}</td>
               <td style={tdStyle}>{usuario.estado}</td>
               <td style={tdStyle}>
                 <Button
