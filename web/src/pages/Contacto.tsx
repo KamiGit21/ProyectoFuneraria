@@ -146,12 +146,6 @@ function Contacto() {
       direccion: 'Av. San Martín 1234, Ciudad Centro',
       telefono: '(+54) 11 4567-8901',
       email: 'principal@lumengest.com'
-    },
-    {
-      nombre: 'Sede Norte',
-      direccion: 'Calle del Roble 567, Barrio Norte',
-      telefono: '(+54) 11 2345-6789',
-      email: 'norte@lumengest.com'
     }
   ];
 
@@ -472,7 +466,7 @@ function Contacto() {
                 height: '100%'
               }}
             >
-              <SubTitle sx={{ textAlign: 'center' }}>Nuestras sucursales</SubTitle>
+              <SubTitle sx={{ textAlign: 'center' }}>Nuestra sucursal</SubTitle>
               
               <Grid container spacing={3}>
                 {sucursales.map((sucursal, index) => (

@@ -26,70 +26,38 @@ const SubTitle = ({ children }) => (
 );
 
 type Obituario = {
-  id: number;
-  orden_id: number;
+  id: string;
   titulo: string;
-  mensaje: string;
-  url_slug: string;
-  imagen_url: string;
-  publicado: boolean;
-  creado_en: string;
-  actualizado_en: string;
+  mensaje?: string;
+  imagen_url?: string;
 };
 
-export default function ObituariosGrid() {
+const ObituariosGrid: React.FC = () => {
   const [obituarios, setObituarios] = useState<Obituario[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const cargarObituarios = async () => {
-      setLoading(true);
-      setError(null);
-      
+    const fetchObituarios = async () => {
       try {
-        // Usar fetch con manejo explícito de la respuesta
         const response = await fetch('http://localhost:3001/api/obituarios');
-        
-        // Verificar si la respuesta es correcta
         if (!response.ok) {
-          const errorText = await response.text();
-          console.error('Respuesta del servidor:', errorText);
-          throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+          throw new Error('Error al cargar los obituarios');
         }
-        
-        // Verificar explícitamente el tipo de contenido
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-          const text = await response.text();
-          console.error('Contenido no JSON recibido:', text.substring(0, 500) + '...');
-          throw new Error(`Respuesta inesperada del servidor: ${contentType}`);
-        }
-        
         const data = await response.json();
         setObituarios(data);
       } catch (err) {
-        console.error('Error al cargar obituarios:', err);
-        
-        // Mostrar mensaje de error más detallado
-        if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
-          setError('No se pudo conectar al servidor. Verifique que el servidor esté ejecutándose.');
-        } else {
-          setError(`Error: ${err.message}`);
-        }
+        setError((err as Error).message);
       } finally {
         setLoading(false);
       }
     };
 
-    cargarObituarios();
+    fetchObituarios();
   }, []);
 
-  const handleViewObituario = (obituario: Obituario) => {
-    // Define aquí la lógica para ver el obituario
-    console.log('Ver obituario', obituario);
-  };
-
+  if (loading) return <p>Cargando obituarios...</p>;
+  if (error) return <p>Error: {error}</p>;
   return (
     <Box sx={{ mb: 4 }}>
       <SubTitle>Homenajes Recientes</SubTitle>
@@ -109,9 +77,11 @@ export default function ObituariosGrid() {
         <Grid container spacing={3}>
           {obituarios.map((obituario) => (
             <Grid item xs={12} sm={6} md={4} key={obituario.id}>
-              <ObituarioCard 
-                obituario={obituario} 
-                onView={handleViewObituario}
+              <ObituarioCard
+                key={obituario.id}
+                titulo={obituario.titulo}
+                mensaje={obituario.mensaje}
+                imagen_url={obituario.imagen_url}
               />
             </Grid>
           ))}
@@ -133,3 +103,5 @@ export default function ObituariosGrid() {
     </Box>
   );
 }
+
+export default ObituariosGrid;

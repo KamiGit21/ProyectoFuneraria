@@ -18,6 +18,7 @@ import {
 import { Search, Heart as Favorite, MessageCircle as Message, Calendar as CalendarToday, MapPin as LocationOn } from 'lucide-react';
 import { useEffect } from 'react';
 import ObituariosGrid from '../components/ObituariosGrid';
+import ObituarioCard from '../components/ObituarioCard';
 
 // Componentes estilizados
 const PageTitle = ({ children }) => (
@@ -85,36 +86,10 @@ const ObituariosPage = () => {
             Estos espacios digitales permiten a familiares y amigos compartir recuerdos, 
             condolencias y mensajes de apoyo.
           </Paragraph>
-          
-          {/* Buscador */}
-          <Box 
-            component="form" 
-            sx={{ 
-              display: 'flex', 
-              alignItems: 'center',
-              maxWidth: 500,
-              mx: 'auto',
-              mt: 3
-            }}
-          >
-            <TextField
-              fullWidth
-              placeholder="Buscar por nombre o lugar..."
-              variant="outlined"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Search color="#6C4F4B" />
-                  </InputAdornment>
-                ),
-                sx: { borderRadius: 50 }
-              }}
-            />
-          </Box>
         </Box>
         
         {/* Resultados */}
-        <ObituariosGrid></ObituariosGrid>
+        <ObituariosGrid/>
         
         {/* Sección informativa */}
         <Box 
