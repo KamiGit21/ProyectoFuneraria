@@ -13,6 +13,7 @@ import orderRoutes    from './routes/order.routes';
 import importRoutes   from './routes/import.routes';
 import categoriaRoutes from './routes/categoria.routes';
 import obituario from './routes/obituarios.routes';
+import faq from './routes/faq.routes';
 
 const app = express();
 console.log('🔍 Endpoints ANTES de montar rutas:');
@@ -47,6 +48,7 @@ app.use('/api/categorias',     categoriaRoutes);
 app.use('/api/ordenes',        orderRoutes);
 app.use('/api/importaciones',  importRoutes);
 app.use('/api/obituarios',     obituario);
+app.use('/api/faq',          faq);
 
 // ─── 5) Después: imprime DE NUEVO tus rutas ───
 console.log('✅ Endpoints DESPUÉS de montar rutas:');

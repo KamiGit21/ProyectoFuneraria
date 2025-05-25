@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Container, Typography } from '@mui/material';
+import FAQComponent from '../components/FAQComponent';
 import {
   Section,
   Title,
@@ -326,6 +327,7 @@ export default function Home() {
           </Container>
         </Box>
       </Box>
+      <FAQComponent/>
     </>
   );
 }
